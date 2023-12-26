@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <center>
+        <div>
+            @if (TempData["error"] != null)
+            {
+                <div style="color:red">@TempData["error"]</div>
+            }
+            @if (TempData["msj"] != null)
+            {
+                <div style="color:blueviolet">@TempData["msj"]</div>
+            }
+            <form>
+                <input type="text" name="NickName" value="" placeholder="Usuario" />
+                <br />
+                <input type="text" name="Password" value="" placeholder="Contraseña" />
+                <br />
+                <input type="submit" name="name" value="Ingresar" formaction="/Home/ValidarUsuarioContraseña" />
+                <a href="/Home/Registrar">Registrar nuevo usuario</a>
+            </form>
+        </div>
+    </center>
+</body>
+</html>

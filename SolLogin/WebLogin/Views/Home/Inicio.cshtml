@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebLogin.Models.Contactos>
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<h2>Inicio</h2>
+@if (TempData["error"] != null)
+{
+    <div style="color:red" class="alert alert-danger">@TempData["error"]</div>
+}
+@if (TempData["msj"] != null)
+{
+    <div style="color:blueviolet" class="alert alert-success" >@TempData["msj"]</div>
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.UsuariosId)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Paterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.UsuariosId)
+                </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @*@Html.ActionLink("Details", "Details", new { id=item.id }) |*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
